@@ -1,0 +1,21 @@
+name: Update branches
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-cms-master:
+    name: Merge main into other branch1 a PR is merged
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: merge
+        uses: mtanzi/action-automerge@v1
+        id: merge
+        with:
+          source: 'main'
+          target: 'branch1'
+          
